@@ -35,3 +35,4 @@ jobs:
           -H "Content-Type: application/json" \
           --data '{"serviceId": "<tên_dịch_vụ>", "triggerName": "manual"}' \
           https://api.render.com/v1/services/<tên_dịch_vụ>/deploys
+
