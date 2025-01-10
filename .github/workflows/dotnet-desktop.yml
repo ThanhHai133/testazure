@@ -1,0 +1,32 @@
+name: Build and Deploy .NET Application
+
+on:
+  push:
+    branches:
+      - main  # hoặc branch bạn đang làm việc
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0'  # hoặc phiên bản .NET của bạn
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build the project
+        run: dotnet build --configuration Release
+
+      - name: Publish the project
+        run: dotnet publish --configuration Release --output ./output
+
+      - name: Deploy to your server (cấu hình theo server của bạn)
+        run: |
+          # Add commands to deploy to server, ví dụ sử dụng SSH hoặc FTP để upload
