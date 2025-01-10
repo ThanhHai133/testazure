@@ -1,38 +1,32 @@
-name: Deploy ASP.NET to Render
+name: Build and Deploy .NET Application
 
 on:
   push:
     branches:
-      - main
+      - main  # hoặc branch bạn đang làm việc
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x' # Thay thế bằng phiên bản .NET của bạn
+          dotnet-version: '9.0'  # hoặc phiên bản .NET của bạn
 
-      - name: Install dependencies
+      - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
+      - name: Build the project
+        run: dotnet build --configuration Release
 
-      - name: Publish
-        run: dotnet publish -c Release -o ${{ github.workspace }}/publish
+      - name: Publish the project
+        run: dotnet publish --configuration Release --output ./output
 
-      - name: Deploy to Render
-        env:
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      - name: Deploy to your server (cấu hình theo server của bạn)
         run: |
-          curl -X POST \
-          -H "Authorization: Bearer $RENDER_API_KEY" \
-          -H "Content-Type: application/json" \
-          --data '{"serviceId": "<tên_dịch_vụ>", "triggerName": "manual"}' \
-          https://api.render.com/v1/services/<tên_dịch_vụ>/deploys
-
+          # Add commands to deploy to server, ví dụ sử dụng SSH hoặc FTP để upload
