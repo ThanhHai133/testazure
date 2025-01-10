@@ -20,7 +20,8 @@ COPY . .
 
 # Chuyển đến thư mục chứa file csproj và build
 WORKDIR /src
-RUN dotnet build "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build/webAPI/
+
 
 # Stage publish để tạo ra ứng dụng đã được publish
 FROM build AS publish

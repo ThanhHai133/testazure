@@ -6,6 +6,6 @@ namespace webAPI.Models
     {
         [Key]
         public int Mathucdon { get; set; }
-        public string Tenthucdon { get; set; }
+        public string? Tenthucdon { get; set; }
     }
 }
