@@ -1,29 +1,35 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
+# Use the official ASP.NET runtime image as the base image
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
-# This stage is used to build the service project
+# Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["webAPI.csproj", "src/"]
-RUN dotnet restore "src/webAPI/webAPI.csproj"
+
+# Sao chép file .csproj vào thư mục src trong container
+COPY ["webAPI.csproj", "./"]
+
+# Restore dependencies (nuget)
+RUN dotnet restore "./webAPI.csproj"
+
+# Sao chép toàn bộ mã nguồn vào container
 COPY . .
+
+# Chuyển đến thư mục chứa file csproj và build
 WORKDIR /src
 RUN dotnet build "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Stage publish để tạo ra ứng dụng đã được publish
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# Final stage - sử dụng base image và copy ứng dụng đã publish vào
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Set the entry point for the container
 ENTRYPOINT ["dotnet", "webAPI.dll"]
