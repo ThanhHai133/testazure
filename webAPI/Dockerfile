@@ -13,9 +13,6 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["webAPI/webAPI.csproj", "webAPI/"]
 
-# Chạy dưới quyền root để tránh lỗi người dùng không hợp lệ
-USER root
-
 RUN dotnet restore "./webAPI/webAPI.csproj"
 COPY . .
 WORKDIR "/src/webAPI"
