@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Xpv5ZqPOKOw=",
+  "dgSpecHash": "afpUqyzFjlc=",
   "success": true,
   "projectFilePath": "D:\\ASP\\webAPI\\webAPI\\webAPI.csproj",
   "expectedPackageFiles": [
@@ -111,6 +111,7 @@
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.openapi\\1.6.22\\microsoft.openapi.1.6.22.nupkg.sha512",
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\9.0.0\\microsoft.visualstudio.web.codegeneration.9.0.0.nupkg.sha512",
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\9.0.0\\microsoft.visualstudio.web.codegeneration.core.9.0.0.nupkg.sha512",
     "C:\\Users\\Zenith\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\9.0.0\\microsoft.visualstudio.web.codegeneration.design.9.0.0.nupkg.sha512",

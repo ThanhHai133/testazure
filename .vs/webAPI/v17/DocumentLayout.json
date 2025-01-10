@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ASP\\webAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F8A1CE0F-249A-479C-B6D7-3E94BF673DE3}|webAPI\\webAPI.csproj|d:\\asp\\webapi\\webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F8A1CE0F-249A-479C-B6D7-3E94BF673DE3}|webAPI\\webAPI.csproj|solutionrelative:webapi\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F8A1CE0F-249A-479C-B6D7-3E94BF673DE3}|webAPI\\webAPI.csproj|d:\\asp\\webapi\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8A1CE0F-249A-479C-B6D7-3E94BF673DE3}|webAPI\\webAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +35,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\ASP\\webAPI\\webAPI\\Dockerfile",
+              "RelativeDocumentMoniker": "webAPI\\Dockerfile",
+              "ToolTip": "D:\\ASP\\webAPI\\webAPI\\Dockerfile",
+              "RelativeToolTip": "webAPI\\Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-01-10T16:04:29.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\ASP\\webAPI\\webAPI\\Program.cs",
               "RelativeDocumentMoniker": "webAPI\\Program.cs",
               "ToolTip": "D:\\ASP\\webAPI\\webAPI\\Program.cs",
               "RelativeToolTip": "webAPI\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T09:24:25.814Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MonAn.cs",
               "DocumentMoniker": "D:\\ASP\\webAPI\\webAPI\\Models\\MonAn.cs",
               "RelativeDocumentMoniker": "webAPI\\Models\\MonAn.cs",
@@ -55,7 +72,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ThucDon.cs",
               "DocumentMoniker": "D:\\ASP\\webAPI\\webAPI\\Models\\ThucDon.cs",
               "RelativeDocumentMoniker": "webAPI\\Models\\ThucDon.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ThucDonController.cs",
               "DocumentMoniker": "D:\\ASP\\webAPI\\webAPI\\Controllers\\ThucDonController.cs",
               "RelativeDocumentMoniker": "webAPI\\Controllers\\ThucDonController.cs",
@@ -75,8 +92,7 @@
               "RelativeToolTip": "webAPI\\Controllers\\ThucDonController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAcwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T16:36:31.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T16:36:31.312Z"
             }
           ]
         }
