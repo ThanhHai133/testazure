@@ -10,7 +10,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Sao chép file .csproj vào thư mục src trong container
-COPY ["webAPI.csproj", "./"]
+COPY ["webAPI/webAPI.csproj", "./"]
 
 # Restore dependencies (nuget)
 RUN dotnet restore "./webAPI.csproj"
