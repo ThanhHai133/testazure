@@ -1,36 +1,32 @@
-# Use the official ASP.NET runtime image as the base image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
-# Use the official .NET SDK image to build the app
+# Chọn image chính thức của .NET SDK
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
+
+# Đặt thư mục làm việc trong container
 WORKDIR /src
 
-# Sao chép file .csproj vào thư mục src trong container
-COPY ["webAPI/webAPI.csproj", "./"]
-
-# Restore dependencies (nuget)
-RUN dotnet restore "./webAPI.csproj"
-
-# Sao chép toàn bộ mã nguồn vào container
+# Sao chép toàn bộ mã nguồn vào thư mục /src trong container
 COPY . .
 
-# Chuyển đến thư mục chứa file csproj và build
-WORKDIR /src
-RUN dotnet build "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build/webAPI/
+# Tạo thư mục build và cấp quyền truy cập
+RUN mkdir -p /app/build/webAPI && chmod -R 777 /app/build
 
+# Restore các dependencies cho dự án
+RUN dotnet restore "./webAPI.csproj"
+
+# Build dự án và xuất kết quả vào thư mục build
+RUN dotnet build "./webAPI.csproj" -c Release -o /app/build/webAPI/
 
 # Stage publish để tạo ra ứng dụng đã được publish
-FROM build AS publish
-RUN dotnet publish "./webAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 
-# Final stage - sử dụng base image và copy ứng dụng đã publish vào
-FROM base AS final
+# Tạo thư mục ứng dụng trong container
 WORKDIR /app
-COPY --from=publish /app/publish .
 
-# Set the entry point for the container
+# Sao chép build đã được thực hiện từ bước trước vào container
+COPY --from=build /app/build/webAPI ./
+
+# Cung cấp cổng mà ứng dụng sẽ sử dụng
+EXPOSE 80
+
+# Thiết lập lệnh khởi chạy cho container
 ENTRYPOINT ["dotnet", "webAPI.dll"]
